@@ -6,7 +6,7 @@
 }
 
 main {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22,42 +22,51 @@ main {
 }
 
 main .login {
-  width: 60%;
-  height: 60%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1.2fr 1fr;
-      grid-template-columns: 1.2fr 1fr;
-}
-
-main .login .left {
+  width: clamp(10rem, 70vw, 100rem);
+  height: clamp(2rem, 70vh, 100rem);
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-main .login .left .background {
+main .login .left-toogle-on {
+  width: 55%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+main .login .left-toogle-on .background {
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
+  right: 0;
   -webkit-box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.185);
           box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.185);
   border-radius: 20px;
   position: absolute;
-  -webkit-transform: rotate(-3deg);
-          transform: rotate(-3deg);
+  -webkit-transform: rotate(-1deg);
+          transform: rotate(-1deg);
   background-color: #63eb63;
 }
 
-main .login .left .foreground {
+main .login .left-toogle-on .foreground {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.185);
-          box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.185);
-  border-radius: 20px;
-  background-color: #4343c4;
+  -webkit-box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.185);
+          box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.185);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(32, 178, 171, 0.463)), to(rgba(6, 233, 222, 0.122)));
+  background-image: linear-gradient(to right, rgba(32, 178, 171, 0.463), rgba(6, 233, 222, 0.122));
   overflow: hidden;
   display: -ms-grid;
   display: grid;
@@ -68,15 +77,7 @@ main .login .left .foreground {
   padding: 10px;
 }
 
-main .login .left .foreground .img {
-  width: 80px;
-}
-
-main .login .left .foreground .img-hub {
-  width: 75px;
-}
-
-main .login .left .foreground .logo {
+main .login .left-toogle-on .foreground .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,90 +87,87 @@ main .login .left .foreground .logo {
   padding: 20px 20px;
 }
 
-main .login .left .foreground nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+main .login .left-toogle-on .foreground .logo .img-hub {
+  width: 60px;
 }
 
-main .login .left .foreground nav ul {
+main .login .left-toogle-on .foreground nav {
   width: 100%;
+  padding: 0 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-}
-
-main .login .left .foreground nav ul li {
-  list-style: none;
-  font-size: 18px;
-}
-
-main .login .left .foreground .all-services {
-  width: 100%;
-  height: 25vh;
-  padding: 20px 50px;
-  overflow-y: auto;
-}
-
-main .login .left .foreground .all-services .services {
-  padding: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-main .login .left .foreground .all-services .services button {
-  padding: 5px 20px;
-  border-radius: 10px;
-  background-color: green;
+main .login .left-toogle-on .foreground nav button {
+  width: 15%;
+  padding: 5px 0;
   border: none;
+  background-color: rgba(255, 255, 255, 0);
+  position: relative;
 }
 
-main .login .left .foreground .all-services::-webkit-scrollbar {
+main .login .left-toogle-on .foreground nav button:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: 0;
+  background-color: #000;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+main .login .left-toogle-on .foreground nav button:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+@keyframe btnServices {}main .login .left-toogle-on .foreground .all-services {
+  width: 100%;
+}
+
+main .login .left-toogle-on .foreground .all-services iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  overflow-y: auto;
+}
+
+main .login .left-toogle-on .foreground .all-services iframe iframe::-webkit-scrollbar {
   width: 5px;
   height: 20px;
 }
 
-main .login .left .foreground .all-services::-webkit-scrollbar-track {
-  border-radius: 20px;
-  background-color: rgba(187, 240, 237, 0.123);
-}
-
-main .login .left .foreground .all-services::-webkit-scrollbar-thumb {
-  border-radius: 20px;
-  background-color: rgba(0, 126, 143, 0.514);
-}
-
-main .login .left .foreground .logo-idcorp {
+main .login .left-toogle-on .foreground .logo-idcorp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding: 0 20px;
+  padding: 5px 30px;
 }
 
-main .login .left .foreground .logo-idcorp .img-id {
+main .login .left-toogle-on .foreground .logo-idcorp .img-id {
   width: 15%;
 }
 
-main .login .right {
+main .login .right-toogle-on {
+  width: 45%;
+  height: 100%;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,9 +177,11 @@ main .login .right {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 0;
+  display: none;
 }
 
-main .login .right .form {
+main .login .right-toogle-on .form {
   width: 100%;
   height: 90%;
   display: -ms-grid;
@@ -192,31 +192,63 @@ main .login .right .form {
       grid-template-rows: .2fr .5fr .5fr .2fr .2fr .5fr;
   -webkit-box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.185);
           box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.185);
-  border-radius: 0 20px 20px 0;
-  background-color: rgba(230, 230, 230, 0.5);
+  background-color: rgba(230, 230, 230, 0.102);
   overflow: hidden;
 }
 
-main .login .right .form .text-login {
+main .login .right-toogle-on .form .text-login {
   width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 12fr 1fr;
+      grid-template-columns: 1fr 12fr 1fr;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 20px;
+  font-size: 10px;
+}
+
+main .login .right-toogle-on .form .text-login a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+
+main .login .right-toogle-on .form .text-login .text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  padding: 20px;
-  font-size: 10px;
-  background-color: lightseagreen;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-main .login .right .form .text-login a {
-  text-decoration: none;
-  color: black;
-  position: relative;
+main .login .right-toogle-on .form .text-login .text a {
+  font-size: 14px;
 }
 
-main .login .right .form .text-login #login:before {
+main .login .right-toogle-on .form .text-login .exit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+main .login .right-toogle-on .form .text-login .exit a img {
+  width: 20px;
+}
+
+main .login .right-toogle-on .form .text-login #login:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -226,7 +258,7 @@ main .login .right .form .text-login #login:before {
   background-color: #237c00;
 }
 
-main .login .right .form .logo-service {
+main .login .right-toogle-on .form .logo-service {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -239,31 +271,30 @@ main .login .right .form .logo-service {
           align-items: center;
 }
 
-main .login .right .form .logo-service a {
+main .login .right-toogle-on .form .logo-service a {
   width: 25%;
 }
 
-main .login .right .form .logo-service a img {
+main .login .right-toogle-on .form .logo-service a img {
   width: 80%;
 }
 
-main .login .right .form form {
+main .login .right-toogle-on .form form {
   width: 100%;
   padding: 0px 100px 0 100px;
 }
 
-main .login .right .form form .input {
+main .login .right-toogle-on .form form .input {
   width: 100%;
   margin: 5px 0;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   outline: none;
-  background-color: rgba(255, 255, 255, 0.219);
   color: #3a3a3a;
 }
 
-main .login .right .form form input:focus {
+main .login .right-toogle-on .form form input:focus {
   border: none;
   -webkit-box-shadow: 0.1px 1px 2px rgba(255, 255, 255, 0.507);
           box-shadow: 0.1px 1px 2px rgba(255, 255, 255, 0.507);
@@ -271,17 +302,17 @@ main .login .right .form form input:focus {
           transform: scale(1.001);
 }
 
-main .login .right .form form .access {
+main .login .right-toogle-on .form form .access {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px 0;
+  padding: 20px 10px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-main .login .right .form form .access .check {
+main .login .right-toogle-on .form form .access .check {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -293,23 +324,25 @@ main .login .right .form form .access .check {
           align-items: center;
 }
 
-main .login .right .form form .access .check .checkbox {
-  margin-right: 5px;
+main .login .right-toogle-on .form form .access .check .checkbox {
+  margin-right: 10px;
+  cursor: pointer;
 }
 
-main .login .right .form form .access .check label {
+main .login .right-toogle-on .form form .access .check label {
   color: #292929;
 }
 
-main .login .right .form form .access button {
+main .login .right-toogle-on .form form .access .check button {
   border-radius: 5px;
   padding: 10px 40px;
   border: none;
   background-color: green;
   color: white;
+  cursor: pointer;
 }
 
-main .login .right .form .or {
+main .login .right-toogle-on .form .or {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -321,16 +354,16 @@ main .login .right .form .or {
           align-items: center;
 }
 
-main .login .right .form .or hr {
+main .login .right-toogle-on .form .or hr {
   width: 15%;
 }
 
-main .login .right .form .or span {
+main .login .right-toogle-on .form .or span {
   margin: 0 20px;
   font-size: 14px;
 }
 
-main .login .right .form .redes {
+main .login .right-toogle-on .form .redes {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -342,7 +375,7 @@ main .login .right .form .redes {
           align-items: center;
 }
 
-main .login .right .form .redes .sociais {
+main .login .right-toogle-on .form .redes .sociais {
   margin: 0 10px;
   padding: 5px 20px;
   background-color: rgba(39, 60, 250, 0.527);
@@ -352,7 +385,7 @@ main .login .right .form .redes .sociais {
   text-decoration: none;
 }
 
-main .login .right .form .forgot {
+main .login .right-toogle-on .form .forgot {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -365,12 +398,112 @@ main .login .right .form .forgot {
   padding: 20px;
 }
 
-main .login .right .form .forgot a {
+main .login .right-toogle-on .form .forgot a {
   text-decoration: none;
   color: #4d4d4d;
 }
 
-main .login .right .form .forgot a:hover {
+main .login .right-toogle-on .form .forgot a:hover {
   color: black;
+}
+
+.leftShow {
+  -webkit-animation: leftShow .2s both linear;
+          animation: leftShow .2s both linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.rightShow {
+  -webkit-animation: rightShow .2s both linear;
+          animation: rightShow .2s both linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes leftShow {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 45%;
+  }
+}
+
+@keyframes leftShow {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: 45%;
+  }
+}
+
+@-webkit-keyframes rightShow {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: 55%;
+  }
+}
+
+@keyframes rightShow {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: 55%;
+  }
+}
+
+.leftHide {
+  -webkit-animation: leftHide .2s both linear;
+          animation: leftHide .2s both linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.rightHide {
+  -webkit-animation: rightHide .2s both linear;
+          animation: rightHide .2s both linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes leftHide {
+  from {
+    margin-right: 55%;
+  }
+  to {
+    margin-right: 0;
+  }
+}
+
+@keyframes leftHide {
+  from {
+    margin-right: 55%;
+  }
+  to {
+    margin-right: 0;
+  }
+}
+
+@-webkit-keyframes rightHide {
+  from {
+    margin-left: 55%;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+
+@keyframes rightHide {
+  from {
+    margin-left: 55%;
+  }
+  to {
+    margin-left: 0;
+  }
 }
 /*# sourceMappingURL=login.css.map */

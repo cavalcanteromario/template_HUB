@@ -4,131 +4,190 @@
     box-sizing: border-box;
 }
 
+// container body principal
 main {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(to left, rgb(21, 153, 197), rgb(25, 25, 231));
 
+
+    // container do centro
     .login {
-        width: 60%;
-        height: 60%;
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
+        width: clamp(10rem,70vw,100rem);
+        height: clamp(2rem, 70vh, 100rem);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
+        // lado esquerdo do container do centro
+        .left-toogle-on {
+            width: 55%;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
 
-        .left {
-            position: relative;
-
+            // fundo do contrainer esquedo do centro
             .background {
                 width: 100%;
                 height: 100%;
                 top: 0;
-                left: 0;
+                right: 0;
                 box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.185);
                 border-radius: 20px;
                 position: absolute;
-                transform: rotate(-3deg);
+                transform: rotate(-1deg);
                 background-color: rgb(99, 235, 99);
             }
 
+            // frente do contrainer esquerdo do centro
             .foreground {
                 width: 100%;
                 height: 100%;
                 position: absolute;
                 top: 0;
                 left: 0;
-                box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.185);
-                border-radius: 20px;
-                background-color: rgb(67, 67, 196);
+                box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.185);
+                background-image: linear-gradient(to right, rgba(32, 178, 171, 0.463),  rgba(6, 233, 222, 0.122));
                 overflow: hidden;
                 display: grid;
                 grid-template-columns: 1fr;
                 grid-template-rows: .2fr .1fr 1fr .1fr;
                 padding: 10px;
 
-                .img {
-                    width: 80px;
-                }
 
-                .img-hub {
-                    width: 75px;
-                }
+                
 
+               
+
+                // Container da logo HUB
                 .logo {
                     display: flex;
                     align-items: center;
                     padding: 20px 20px;
-                }
 
-                nav {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    ul {
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-evenly;
-                        li {
-                            list-style: none;
-                            font-size: 18px;
-                        }
+                     // img da logo HUB
+                    .img-hub {
+                        width: 60px;
                     }
                 }
 
+                // nav dos tipos de serviços
+                nav {
+                    width: 100%;
+                    padding: 0 40px;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+
+
+                   button {
+                       width: 15%;
+                       padding: 5px 0;
+                       border: none;
+                       background-color: rgba(255, 255, 255, 0);
+                       position: relative;
+
+                   }
+
+
+
+                   button:before {
+                       content: "";
+                       position: absolute;
+                       width: 100%;
+                       height: 1px;
+                       left: 0;
+                       bottom: 0;
+                       background-color: #000;
+                       visibility: hidden;
+                       transform: scaleX(0);
+                       transition: all 0.2s ease-in-out 0s;
+                   }
+
+                   button:hover:before {
+                       visibility: visible;
+                       transform: scaleX(1);
+                   }
+
+
+                   @keyframe btnServices {
+                       from {
+                            
+                       }
+
+                       to {
+
+                       }
+                   }
+
+
+
+
+
+
+
+
+
+
+
+                }
+
+                // container dos serviços
                 .all-services {
                     width: 100%;
-                    height: 25vh;
-                    padding: 20px 50px;
-                    overflow-y: auto;
+                    // height: 35vh;
+                    // padding: 20px 20px 5px 20px;
 
-                    .services {
-                        padding: 20px;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
+                    iframe {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        overflow-y: auto;
 
-                        button {
-                            padding: 5px 20px;
-                            border-radius: 10px;
-                            background-color: green;
-                            border: none;
+                        iframe::-webkit-scrollbar {
+                            width: 5px;
+                            height: 20px;
                         }
+                        
+                        // &::-webkit-scrollbar-track {
+                        //     border-radius: 20px;
+                        //     background-color: rgba(187, 240, 237, 0.123);
+                        // }
+                        
+                        // &::-webkit-scrollbar-thumb {
+                        //     border-radius: 20px;
+                        //     background-color: rgba(0, 126, 143, 0.514);
+                        // }
                     }
 
-                    &::-webkit-scrollbar {
-                        width: 5px;
-                        height: 20px;
-                    }
-
-                    &::-webkit-scrollbar-track {
-                        border-radius: 20px;
-                        background-color: rgba(187, 240, 237, 0.123);
-                    }
-
-                    &::-webkit-scrollbar-thumb {
-                        border-radius: 20px;
-                        background-color: rgba(0, 126, 143, 0.514);
-                    }
                 }
-                
+
                 .logo-idcorp {
                     display: flex;
                     justify-content: flex-end;
-                    padding: 0 20px;
+                    padding: 5px 30px;
                     .img-id {
                         width: 15%;
                     }
                 }
+
             }
         }
-
-        .right {
+        
+        .right-toogle-on {
+            width: 45%;
+            height: 100%;
+            position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 0;
+            display: none;
+
 
             .form {
                 width: 100%;
@@ -137,24 +196,44 @@ main {
                 grid-template-columns: 1fr;
                 grid-template-rows: .2fr .5fr .5fr .2fr .2fr .5fr;
                 box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.185);
-                border-radius: 0 20px 20px 0;
-                background-color: rgba(230, 230, 230, 0.5);
+                background-color: rgba(230, 230, 230, 0.102);
                 overflow: hidden;
+
 
                 .text-login {
                     width: 100%;
-                    display: flex;
+                    display: grid;
+                    grid-template-columns: 1fr 12fr 1fr;
                     justify-content: space-evenly;
                     padding: 20px;
                     font-size: 10px;
-                    background-color: lightseagreen; 
-                    
+
                     a {
                         text-decoration: none;
                         color: black;
                         position: relative;
                     }
 
+                    .text {
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        a {
+                            font-size: 14px;
+                        }
+                    }
+
+                    .exit {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100%;
+                        a {
+                            img {
+                                width: 20px;
+                            }
+                        }
+                    }
                     #login:before {
                         content: "";
                         position: absolute;
@@ -162,29 +241,24 @@ main {
                         height: 2px;
                         bottom: 0;
                         left: 0;
-                        background-color: rgb(35, 124, 0);                        
+                        background-color: rgb(35, 124, 0);
                     }
                 }
-
                 .logo-service {
                     width: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    
                     a {
                         width: 25%;
                         img {
                             width: 80%;
                         }
                     }
-                    
                 }
-
                 form {
                     width: 100%;
                     padding: 0px 100px 0 100px;
-
                     .input {
                         width: 100%;
                         margin: 5px 0;
@@ -192,66 +266,56 @@ main {
                         border: none;
                         border-radius: 5px;
                         outline: none;
-                        background-color: rgba(255, 255, 255, 0.219);
                         color: rgb(58, 58, 58);
                     }
-
                     input:focus {
                         border: none;
                         box-shadow: .1px 1px 2px rgba(255, 255, 255, 0.507);
                         transform: scale(1.001);
                     }
-
                     .access {
                         display: flex;
-                        padding: 20px 0;
+                        padding: 20px 10px;
                         justify-content: space-between;
-
                         .check {
                             display: flex;
                             justify-content: center;
                             align-items: center;
-
                             .checkbox {
-                                margin-right: 5px;
+                                margin-right: 10px;
+                                cursor: pointer;
                             }
-
                             label {
                                 color: rgb(41, 41, 41);
                             }
-                        }
 
-                        button {
-                            border-radius: 5px;
-                            padding: 10px 40px;
-                            border: none;
-                            background-color: green;
-                            color: white;
+                            button {
+                                border-radius: 5px;
+                                padding: 10px 40px;
+                                border: none;
+                                background-color: green;
+                                color: white;
+                                cursor: pointer;
+                            }
                         }
                     }
                 }
-
                 .or {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-
                     hr {
                         width: 15%;
                     }
-
                     span {
                         margin: 0 20px;
                         font-size: 14px;
-
                     }
                 }
-
                 .redes {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-
                     .sociais {
                         margin: 0 10px;
                         padding: 5px 20px;
@@ -262,18 +326,15 @@ main {
                         text-decoration: none;
                     }
                 }
-
                 .forgot {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     padding: 20px;
-
                     a {
                         text-decoration: none;
                         color: rgb(77, 77, 77);
                     }
-
                     a:hover {
                         color: black;
                     }
@@ -282,3 +343,64 @@ main {
         }
     }
 }
+
+
+
+
+
+
+// Animations left
+
+.leftShow {
+    animation: leftShow .2s both linear;
+    animation-fill-mode: forwards;
+}
+
+.rightShow {
+    animation: rightShow .2s both linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes leftShow {
+    from {margin-right: 0;}
+    to {margin-right: 45%;}
+}
+
+@keyframes rightShow {
+    0% {margin-left: 0;}
+    100% {margin-left: 55%;}
+}
+
+// Animations right
+
+
+.leftHide {
+    animation: leftHide .2s both linear;
+    animation-fill-mode: forwards;
+}
+
+.rightHide {
+    animation: rightHide .2s both linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes leftHide {
+    from {margin-right: 55%;}
+    to {margin-right: 0;}
+}
+
+@keyframes rightHide {
+    from {margin-left: 55%;}
+    to {margin-left: 0;}
+}
+
+
+
+
+
+
+
+
+
+
+

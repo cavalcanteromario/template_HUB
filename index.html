@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,86 +8,101 @@
     <title>HUB</title>
     <!-- css -->
     <link rel="stylesheet" href="assets/css/login.css">
+    <!-- css responsivo -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
+
 <body>
     <main>
+
         <div class="login">
-            <div class="left">
-                <div class="background"></div>
+
+            <div class="left-toogle-on">
+
+                <!-- <div class="background"></div> -->
+
                 <div class="foreground">
+
                     <div class="logo">
                         <img class="img-hub" src="assets/img/hub.png" alt="logo-hub.png">
                     </div>
+
                     <nav>
-                        <ul>
-                            <li>ERP</li>
-                            <li>SERVIÇOS</li>
-                        </ul>
+                        <button id="btnERP" onclick="showErp(); underlineBtnERP();"> ERP </button>
+                        <button id="btnServ" onclick="showServices(); underlineBtnServ();"> SERVIÇOS </button>
                     </nav>
+
                     <div class="all-services">
-                        <div class="services">
-                            <img  class="img" src="assets/img/deezer.png" alt="logo-deezer.png">
-                            <button>Conectar</button>
-                        </div>
-                        <div class="services">
-                            <img  class="img" src="assets/img/looke.png" alt="logo-looke.png">
-                            <button>Conectar</button>
-                        </div>
-                        <div class="services">
-                            <img  class="img" src="assets/img/ixc.png" alt="logo-ixc.png">
-                            <button>Conectar</button>
-                        </div>
-                        <div class="services">
-                            <img  class="img" src="assets/img/deezer.png" alt="logo-voale.png">
-                            <button>Conectar</button>
-                        </div>
+
+                        <iframe id="erps" src="erps.html" style="display: block;"></iframe>
+                        <iframe id="services" src="services.html" style="display: none;"></iframe>
+
+                        
                     </div>
+
                     <div class="logo-idcorp">
                         <img class="img-id" src="assets/img/idcorpbrasil.png">
-                        <img class="img-id" src="assets/img/idcorpbrasil.png">
                     </div>
+
                 </div>
             </div>
-            <div class="right">
+
+            <div class="right-toogle-on">
 
                 <div class="form">
-
-                    <div class="text-login">
-                        <h2><a id="login" href=".">LOGIN</a></h2>
-                        <h2><a id="cadastre" href=".">CADASTRE-SE</a></h2>
-                        <div class="exit"></div>
-                    </div>
-
-                    <div class="logo-service">
-                        <a href="."><img src="assets/img/deezer.png" alt="logo-deezer.png"></a>
-                    </div>
-
-                    <form action="login.html">
-                        <input class="input" type="text" placeholder="Usuário">
-                        <input class="input" type="password" placeholder="Senha">
-                        <div class="access">
-                            <div class="check">
-                                <input class="checkbox" type="checkbox" name="stay-connected">
-                                <label for="stay-connected">Manter conectado</label>
+                    <div class="items">
+                        <div class="text-login">
+                            <div></div>
+                            <div class="text">
+                                <a id="login" href=".">LOGIN</a>
+                                <a id="cadastre" href=".">CADASTRE-SE</a>
                             </div>
-                            <button>Acessar</button>
+                            <div class="exit">
+                                <button id="exit" onclick="leftHide(); rightHide();">
+                                    <img src="/assets/img/icons/close.png" alt="img-close.png">
+                                </button>
+                            </div>
                         </div>
-                    </form>
-                    <div class="or">
-                        <hr>
-                        <span>OR</span>
-                        <hr>
-                    </div>
-                    <div class="redes">
-                        <a class="sociais" href="https://pt-br.facebook.com/">FaceBook</a>
-                        <a class="sociais" href="https://www.google.com/">Google</a>
-                    </div>
-                    <div class="forgot">
-                        <a href=".">Esqueceu sua senha ?</a>
+                        <div class="logo-service">
+                            <a href="."><img src="assets/img/deezer.png" alt="logo-deezer.png"></a>
+                        </div>
+                        <form action="login.html">
+
+                            <input class="input" type="text" placeholder="Usuário">
+
+                            <input class="input" type="password" placeholder="Senha">
+
+                            <div class="access">
+                                <div class="check">
+                                    <input class="checkbox" type="checkbox" name="stay-connected">
+                                    <label for="stay-connected">manter conectado</label>
+                                </div>
+                                <button>Acessar</button>
+                            </div>
+                        </form>
+                        <div class="or">
+                            <hr>
+                            <span>OR</span>
+                            <hr>
+                        </div>
+                        <div class="redes">
+                            <a class="sociais" href="https://pt-br.facebook.com/">FaceBook</a>
+                            <a class="sociais" href="https://www.google.com/">Google</a>
+                        </div>
+                        <div class="forgot">
+                            <a href=".">Esqueceu sua senha ?</a>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+
         </div>
     </main>
+
+
+    <script src="/index.js"></script>
 </body>
+
 </html>
