@@ -30,17 +30,33 @@ function rightHide() {
 
 
 
+
 // SHOW/HIDDEN IFRAMES SELECTION
 
 function showErp() {
-    document.getElementById("erps").style.display = "block";
-    document.getElementById("services").style.display = "none";
+    let erps = document.getElementById("erps");
+    let services = document.getElementById("services");
+    
+    
+    erps.classList.add("toRight");
+    services.classList.add("toRight");
+    
+    // services.classList.remove("toLeft"); 
+    
+    erps.style.display = "block";
+    services.style.display = "none";
 }
 
 function showServices() {
-    document.getElementById("erps").style.display = "none";
-    document.getElementById("services").style.display = "block";
+    let erps = document.getElementById("erps");
+    let services = document.getElementById("services");
 
+    
+    // services.classList.add("toLeft");
+    // erps.classList.remove("toRight");
+    
+    erps.style.display = "none";
+    services.style.display = "block";
 }
 
 

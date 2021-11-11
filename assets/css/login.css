@@ -506,4 +506,50 @@ main .login .right-toogle-on .form .forgot a:hover {
     margin-left: 0;
   }
 }
+
+.toLeft {
+  -webkit-animation: toLeft .2s linear;
+          animation: toLeft .2s linear;
+}
+
+.toRight {
+  -webkit-animation: toRight .5s linear;
+          animation: toRight .5s linear;
+}
+
+@-webkit-keyframes toLeft {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-right: 0;
+  }
+}
+
+@keyframes toLeft {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-right: 0;
+  }
+}
+
+@-webkit-keyframes toRight {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-left: 100%;
+  }
+}
+
+@keyframes toRight {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-left: 100%;
+  }
+}
 /*# sourceMappingURL=login.css.map */

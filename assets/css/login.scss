@@ -116,7 +116,7 @@ main {
 
                    @keyframe btnServices {
                        from {
-                            
+
                        }
 
                        to {
@@ -395,6 +395,25 @@ main {
 }
 
 
+// Animations Transitions toRight and toLeft
+
+.toLeft {
+    animation: toLeft .2s linear;
+}
+
+.toRight {
+    animation: toRight .5s linear;
+}
+
+@keyframes toLeft {
+    from {margin-left: 100%;}
+    to {margin-right: 0;}
+}
+
+@keyframes toRight {
+    from {margin-right: 0;}
+    to {margin-left: 100%;}
+}
 
 
 
